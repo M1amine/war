@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The New Iran–Israel War (2026) - Ultra Premium V2</title>
+  <style>
+    :root {
+      --bg: #040811;
+      --bg2: #0b1222;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.10);
+      --text: #f6f8fc;
+      --muted: #b7c0d7;
+      --red: #ff4d4d;
+      --orange: #ff9f43;
+      --amber: #ffc46b;
+      --blue: #69b6ff;
+      --cyan: #6ef2ff;
+      --green: #65ffb3;
+      --shadow: 0 30px 80px rgba(0,0,0,.38);
+      --glow-red: 0 0 28px rgba(255,77,77,.28);
+      --glow-blue: 0 0 24px rgba(105,182,255,.22);
+      --radius: 28px;
+    }
+
+
+    .null{
+        
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 15%, rgba(255,77,77,.10), transparent 24%),
+        radial-gradient(circle at 88% 18%, rgba(105,182,255,.08), transparent 24%),
+        radial-gradient(circle at 50% 120%, rgba(255,159,67,.07), transparent 35%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    }
+
+    body::after {
+      background: radial-gradient(circle at 50% 50%, transparent 50%, rgba(0,0,0,.35) 100%);
+    }
+
+    .bg-noise, .particles, .smoke {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-noise {
+      opacity: .08;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,.35) 1px, transparent 1px);
+      background-size: 22px 22px, 32px 32px;
+      background-position: 0 0, 11px 11px;
+      filter: contrast(120%);
+    }
+
+    .smoke::before, .smoke::after {
+      content: "";
+      position: absolute;
+      width: 70vw;
+      height: 70vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.035), transparent 60%);
+      filter: blur(40px);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .smoke::before { left: -15vw; bottom: -20vw; }
+    .smoke::after { right: -10vw; top: -18vw; animation-duration: 24s; }
+
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to { transform: translate(6vw, -3vh) scale(1.08); }
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.22);
+      box-shadow: 0 0 10px rgba(255,255,255,.18);
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(110vh) scale(.8); opacity: 0; }
+      12% { opacity: .4; }
+      85% { opacity: .1; }
+      to { transform: translateY(-20vh) scale(1.25); opacity: 0; }
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
+      backdrop-filter: blur(14px);
+      background: rgba(5,8,18,.42);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      min-width: 210px;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--red), var(--orange));
+      box-shadow: var(--glow-red);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); opacity: .9; }
+      50% { transform: scale(1.25); opacity: 1; }
+    }
+
+    .progress-wrap {
+      flex: 1;
+      height: 10px;
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+      position: relative;
+    }
+
+    .progress {
+      height: 100%;
+      width: 8.33%;
+      background: linear-gradient(90deg, var(--red), var(--orange), var(--amber));
+      box-shadow: var(--glow-red);
+      transition: width .7s cubic-bezier(.22,1,.36,1);
+      position: relative;
+    }
+
+    .progress::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 60px;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.28));
+      filter: blur(6px);
+    }
+
+    .counter {
+      min-width: 72px;
+      text-align: right;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .slides {
+      position: relative;
+      flex: 1;
+      margin-top: 56px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 5rem 5.5vw 6rem;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 2rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateX(48px) scale(.985);
+      pointer-events: none;
+      transition: opacity .8s ease, transform .8s cubic-bezier(.22,1,.36,1);
+    }
+
+
+    
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .slide.single { grid-template-columns: 1fr; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      color: var(--orange);
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      margin-bottom: .9rem;
+      opacity: .95;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+      box-shadow: var(--glow-red);
+      border-radius: 999px;
+    }
+
+    h1, h2, h3 { margin: 0 0 1rem; line-height: 1.02; }
+    h1 { font-size: clamp(2.9rem, 6vw, 6.4rem); font-weight: 900; letter-spacing: -0.04em; }
+    h2 { font-size: clamp(2.1rem, 4.4vw, 4.2rem); font-weight: 850; letter-spacing: -0.03em; }
+    h3 { font-size: clamp(1.3rem, 2.2vw, 2rem); }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffffff, #ffd6d6, #ffc46b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .typewriter {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid rgba(255,255,255,.7);
+      width: 0;
+    }
+
+    .slide.active .typewriter {
+      animation: typing 2.4s steps(28,end) forwards, caret .8s step-end infinite;
+    }
+
+    @keyframes typing { to { width: 100%; } }
+    @keyframes caret { 50% { border-color: transparent; } }
+
+    p, li {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.35vw, 1.22rem);
+      line-height: 1.6;
+    }
+
+    .lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.38rem);
+      max-width: 860px;
+    }
+
+    ul { padding-left: 1.25rem; margin: 1rem 0 0; }
+
+    .visual {
+      position: relative;
+      min-height: 420px;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        radial-gradient(circle at 80% 18%, rgba(255,77,77,.18), transparent 30%),
+        radial-gradient(circle at 18% 78%, rgba(105,182,255,.08), transparent 28%),
+        linear-gradient(135deg, rgba(8,12,24,.95), rgba(14,18,32,.9));
+      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255,255,255,.03);
+      isolation: isolate;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.35rem;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55));
+      z-index: 1;
+    }
+
+    .image-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.05);
+      filter: saturate(.95) contrast(1.05) brightness(.65);
+      transition: transform 7s ease;
+      z-index: 0;
+    }
+
+    .slide.active .image-bg { transform: scale(1.12); }
+
+    .overlay-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+      opacity: .25;
+      z-index: 1;
+    }
+
+    .visual-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+    }
+
+
+    .null {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 270px;
+}
+
+.box {
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.box .chips {
+  justify-content: center;
+}
+
+.box .quote {
+  margin: 1.5rem auto 0;
+}
+
+    .img-label {
+      display: inline-block;
+      padding: .45rem .75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.08);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: white;
+      margin-bottom: .7rem;
+      text-transform: uppercase;
+    }
+
+    .img-title { font-size: clamp(1.15rem, 1.8vw, 1.75rem); font-weight: 800; margin-bottom: .35rem; }
+    .img-sub { font-size: .95rem; color: #e6edf8; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .card {
+      padding: 1rem 1rem 1rem 1.05rem;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,159,67,.28);
+      box-shadow: 0 18px 40px rgba(0,0,0,.25), 0 0 0 1px rgba(255,159,67,.06);
+    }
+
+    .k {
+      color: var(--orange);
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-weight: 800;
+      margin-bottom: .45rem;
+    }
+
+    .v { color: white; font-size: 1.03rem; font-weight: 700; line-height: 1.4; }
+
+    .timeline {
+      margin-top: 1.35rem;
+      position: relative;
+      padding-left: 1.4rem;
+      border-left: 2px solid rgba(255,77,77,.22);
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: -2px;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: linear-gradient(180deg, var(--red), var(--orange));
+      box-shadow: var(--glow-red);
+    }
+
+    .slide.active .timeline::before {
+      animation: growLine 1.4s ease forwards;
+    }
+
+    @keyframes growLine { to { height: 100%; } }
+
+    .timeline-item {
+      position: relative;
+      padding: .75rem 0 1rem 1rem;
+      opacity: 0;
+      transform: translateX(14px);
+    }
+
+    .slide.active .timeline-item { animation: revealItem .6s ease forwards; }
+    .slide.active .timeline-item:nth-child(1) { animation-delay: .25s; }
+    .slide.active .timeline-item:nth-child(2) { animation-delay: .45s; }
+    .slide.active .timeline-item:nth-child(3) { animation-delay: .65s; }
+
+    @keyframes revealItem { to { opacity: 1; transform: translateX(0); } }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.82rem;
+      top: 1.05rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--red), var(--orange));
+      box-shadow: 0 0 20px rgba(255,77,77,.45);
+      animation: dotPulse 2.5s infinite;
+    }
+
+    @keyframes dotPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+
+    .date {
+      color: var(--orange);
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 800;
+      margin-bottom: .25rem;
+    }
+
+    .quote {
+      margin-top: 1.15rem;
+      padding: 1rem 1.2rem;
+      border-left: 3px solid var(--orange);
+      border-radius: 0 18px 18px 0;
+      background: rgba(255,255,255,.03);
+      color: #ebf1fb;
+      font-size: clamp(1rem, 1.6vw, 1.28rem);
+      max-width: 860px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.25rem;
+      justify-content: center;
+    }
+
+    .chip {
+      padding: .65rem .9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #f9fbff;
+      font-size: .92rem;
+      font-weight: 600;
+    }
+  
+    .center-box { max-width: 1000px; margin: 0 auto; text-align: center; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all .75s cubic-bezier(.22,1,.36,1);
+    }
+    .slide.active .fade-up { opacity: 1; transform: translateY(0); }
+    .slide.active .d1 { transition-delay: .08s; }
+    .slide.active .d2 { transition-delay: .22s; }
+    .slide.active .d3 { transition-delay: .38s; }
+    .slide.active .d4 { transition-delay: .54s; }
+    .slide.active .d5 { transition-delay: .72s; }
+
+    .big-number {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      color: rgba(255,255,255,.08);
+      z-index: 2;
+      user-select: none;
+    }
+
+    .hero-map, .radar, .missiles, .world, .split, .target-grid, .hotspots {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-map::before, .world::before {
+      content: "";
+      position: absolute;
+      inset: 12% 10%;
+      border-radius: 26px;
+      border: 1px dashed rgba(255,255,255,.08);
+      background:
+        radial-gradient(circle at 56% 47%, rgba(255,77,77,.14), transparent 16%),
+        radial-gradient(circle at 60% 42%, rgba(255,196,107,.12), transparent 10%),
+        radial-gradient(circle at 48% 54%, rgba(105,182,255,.08), transparent 18%);
+      animation: pulseMap 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseMap { 0%,100% { transform: scale(1); opacity: .6; } 50% { transform: scale(1.03); opacity: .95; } }
+
+    .radar::before, .radar::after {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,77,77,.24);
+      transform: translate(-50%, -50%);
+      animation: radarPulse 3s ease-out infinite;
+    }
+    .radar::after { animation-delay: 1.2s; }
+    @keyframes radarPulse { from { width: 44px; height: 44px; opacity: .7; } to { width: 460px; height: 460px; opacity: 0; } }
+
+    .target-grid::before {
+      content: "";
+      position: absolute;
+      inset: 14% 12%;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 24px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, var(--orange) 35%, var(--red) 100%);
+      box-shadow: 0 0 18px rgba(255,77,77,.45);
+      animation: hotspotPulse 2.4s infinite;
+    }
+
+    .hotspot::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,159,67,.35);
+      animation: ring 2.4s infinite;
+    }
+
+    @keyframes hotspotPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+    @keyframes ring { from { transform: scale(.8); opacity: .9; } to { transform: scale(1.8); opacity: 0; } }
+
+    .missile {
+      position: absolute;
+      width: 180px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(255,196,107,.9), rgba(255,77,77,.95));
+      box-shadow: 0 0 18px rgba(255,77,77,.22);
+      transform-origin: left center;
+      animation: launch 5s linear infinite;
+    }
+
+    .missile::after {
+      content: "";
+      position: absolute;
+      right: -4px; top: -4px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 12px rgba(255,255,255,.8);
+    }
+
+    .m1 { top: 68%; left: 8%; transform: rotate(-18deg); animation-delay: 0s; }
+    .m2 { top: 77%; left: 14%; transform: rotate(-28deg); animation-delay: 1.4s; }
+    .m3 { top: 56%; left: 5%; transform: rotate(-10deg); animation-delay: 2.3s; }
+
+    @keyframes launch {
+      0% { opacity: 0; transform: translateX(-90px) rotate(-18deg); }
+      12%, 62% { opacity: .95; }
+      100% { opacity: 0; transform: translateX(560px) translateY(-130px) rotate(-18deg); }
+    }
+
+    .world-lines {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      opacity: .65;
+    }
+
+    .world-lines::before,
+    .world-lines::after {
+      content: "";
+      position: absolute;
+      left: 14%; right: 14%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(105,182,255,.4), transparent);
+      box-shadow: var(--glow-blue);
+      animation: sweep 4.5s linear infinite;
+    }
+    .world-lines::before { top: 35%; }
+    .world-lines::after { top: 62%; animation-delay: 1.6s; }
+    @keyframes sweep { from { transform: translateX(-20px); opacity: .2; } 50% { opacity: .85; } to { transform: translateX(20px); opacity: .2; } }
+
+    .controls {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display: flex;
+      gap: .7rem;
+      align-items: center;
+    }
+
+    button {
+      border: none;
+      border-radius: 18px;
+      padding: .9rem 1rem;
+      min-width: 56px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: white;
+      cursor: pointer;
+      background: linear-gradient(135deg, rgba(255,77,77,.95), rgba(255,159,67,.95));
+      box-shadow: 0 12px 30px rgba(255,77,77,.22);
+      transition: transform .2s ease, filter .2s ease;
+    }
+
+    button:hover { transform: translateY(-2px); filter: brightness(1.05); }
+
+    .secondary {
+      background: linear-gradient(135deg, rgba(105,182,255,.22), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+    }
+
+    .footer-note, .presenter-note {
+      position: fixed;
+      left: 18px;
+      z-index: 55;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,.75);
+    }
+
+    .footer-note {
+      bottom: 18px;
+      padding: .7rem .9rem;
+      font-size: .8rem;
+    }
+
+    .presenter-note {
+      left: 18px;
+      bottom: 64px;
+      max-width: min(520px, 58vw);
+      padding: .8rem .95rem;
+      font-size: .88rem;
+      line-height: 1.45;
+      display: none;
+    }
+
+    .presenter-note.visible { display: block; }
+
+    .speaker-title {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--orange);
+      font-weight: 800;
+      margin-bottom: .35rem;
+    }
+
+    .corner-credit {
+      position: fixed;
+      top: 70px;
+      right: 18px;
+      z-index: 45;
+      padding: .55rem .75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.75);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    @media (max-width: 1024px) {
+      .slide { grid-template-columns: 1fr; padding: 4.8rem 1.2rem 6rem; overflow-y: auto; }
+      .visual { min-height: 300px; }
+      .cards { grid-template-columns: 1fr; }
+      .presenter-note { max-width: calc(100vw - 36px); }
+      .corner-credit { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .brand { min-width: auto; font-size: .68rem; }
+      .counter { font-size: .82rem; }
+      .footer-note { display: none; }
+      .presenter-note { bottom: 84px; font-size: .82rem; }
+      .typewriter { white-space: normal; width: auto; border-right: none; }
+      .slide.active .typewriter { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-noise"></div>
+  <div class="smoke"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="app">
+    <div class="topbar">
+      <div class="brand"><span class="brand-dot"></span> English CC Presentation</div>
+      <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+      <div class="counter" id="counter">1 / 12</div>
+    </div>
+
+    <div class="corner-credit">Made by SHADE</div>
+
+    
+
+    <main class="slides" id="slides">
+     <!--0-->
+      <section class="slide active" data-note="Start with confidence: introduce the topic, say this is the new 2026 phase of the conflict, and tell the class you will explain causes, timeline, and global impact.">
+        <div class="null">
+           <div class="box">
+          <div class="eyebrow fade-up d1" style="justify-content:center;">English CC</div>
+                 <h1 class="gradient fade-up d2">My Presentation</h1>
+                  <p class="lead fade-up d3" style="margin:0 auto;">
+                    <strong>English CC Presentation</strong><br>
+                        Presented by <strong> M amine Boutaleb</strong><br>
+                                            </p>
+             <div class="chips fade-up d4">
+              
+          </div>
+         
+         </div>
+        
+      </section>
+
+
+       <!-- 1 -->
+      <section class="slide active" data-note="Start with confidence: introduce the topic, say this is the new 2026 phase of the conflict, and tell the class you will explain causes, timeline, and global impact.">
+        <div>
+          <div class="eyebrow fade-up d1">Geopolitical Crisis Briefing</div>
+          <h1 class="gradient fade-up d2"><span class="typewriter">The New Iran–Israel War (2026)</span></h1>
+          <p class="lead fade-up d3">From years of indirect confrontation to open military escalation, this presentation analyzes the causes, turning points, and wider regional and global consequences of the Iran–Israel conflict in 2026</p>
+          <div class="chips fade-up d4" style="justify-content:flex-start;">
+            <span class="chip">Middle East Conflict</span>
+            <span class="chip">March 2026 War Phase</span>
+            <span class="chip">Political + Human Impact</span>
+          </div>
+        </div>
+        
+      </section>
+      
+
+      <!-- 2 -->
+      <section class="slide" data-note="Explain in 20–30 seconds: this is the newest and most dangerous phase because it became more direct, faster, and more regional.">
+        <div>
+          <div class="eyebrow fade-up d1">Introduction</div>
+          <h2 class="fade-up d2">What is this conflict?</h2>
+          <ul class="fade-up d3">
+            <li>The 2026 war is the newest and most dangerous phase of the Iran–Israel confrontation.</li>
+            <li>It moved from indirect rivalry to direct strikes, regional retaliation, and international alarm.</li>
+            <li>Missiles, drones, air attacks, and strategic targets became central.</li>
+            <li>The consequences reached politics, oil, trade, and civilian security.</li>
+          </ul>
+        </div>
+        <div class="cards fade-up d4">
+          <div class="card"><div class="k">Type</div><div class="v">Direct regional war</div></div>
+          <div class="card"><div class="k">Main actors</div><div class="v">Iran, Israel, U.S. involvement</div></div>
+          <div class="card"><div class="k">Methods</div><div class="v">Airstrikes, missiles, drones</div></div>
+          <div class="card"><div class="k">Why it matters</div><div class="v">Regional + global consequences</div></div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="slide" data-note="Say that before 2026, the rivalry already existed, but it was mostly indirect. This helps your teacher see you understand context, not just dates.">
+        <div>
+          <div class="eyebrow fade-up d1">Background</div>
+          <h2 class="fade-up d2">Long-term tension before 2026</h2>
+          <p class="lead fade-up d3">Iran and Israel had been rivals for years. Before 2026, much of the conflict happened indirectly through proxy groups, regional influence, and limited direct exchanges.</p>
+          <div class="timeline fade-up d4">
+            <div class="timeline-item">
+              <div class="date">Before 2024</div>
+              <p>Mostly indirect confrontation through alliances, pressure, and regional strategy.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">2024–2025</div>
+              <p>Direct exchanges increased and prepared the ground for a bigger war.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">2026</div>
+              <p>The conflict entered a faster, broader, and more dangerous phase.</p>
+            </div>
+          </div>
+        </div>
+        <div class="visual">
+          <div class="image-bg" style="background-image:url('https://tse1.mm.bing.net/th/id/OIP.y0FBUj6Kh2VD6RwK7ORqDAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+          <div class="overlay-grid"></div>
+          <div class="world"></div>
+          <div class="world-lines"></div>
+          <div class="visual-content">
+            <div class="img-title">Regional map</div>
+            <div class="img-sub">Regional map showing Iran–Israel tensions, proxy influence, and strategic pressure before 2026.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="slide" data-note="This is the key date. Say clearly: the new war phase started on February 28, 2026, and then became the March war everyone talked about.">
+        <div>
+          <div class="eyebrow fade-up d1">Timeline</div>
+          <h2 class="fade-up d2">February 28, 2026 — The New War Begins</h2>
+          <p class="lead fade-up d3">This date is often treated as the real beginning of the new war phase. Israeli and U.S.-linked military action triggered the direct escalation that became the March 2026 conflict.</p>
+          <div class="quote fade-up d4">This was not just another tension episode — it marked the opening of a broader and more open regional war.</div>
+        </div>
+        <div class="visual">
+          <div class="image-bg" style="background-image:url('https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2024/04/1200/675/Netanyahu-Ayatollah-war.jpg?ve=1&tl=1');"></div>
+          <div class="big-number">02.28</div>
+          <div class="overlay-grid"></div>
+          <div class="radar"></div>
+          <div class="target-grid"></div>
+          <div class="visual-content">
+            <div class="img-label">Turning point</div>
+            <div class="img-title">Airstrike / operation / command response</div>
+            <div class="img-sub">A turning point in which direct military action transformed long-standing tension into open conflict.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="slide" data-note="Say: by March 1 and 2, it was no longer a limited action. It had become a visible, full-scale conflict.">
+        <div>
+          <div class="eyebrow fade-up d1">Escalation</div>
+          <h2 class="fade-up d2">March 1–2, 2026 — Full-Scale Conflict</h2>
+          <div class="cards fade-up d3">
+            <div class="card"><div class="k">Step 1</div><div class="v">Strategic strikes expanded rapidly</div></div>
+            <div class="card"><div class="k">Step 2</div><div class="v">Command systems and military sites became targets</div></div>
+            <div class="card"><div class="k">Step 3</div><div class="v">The conflict moved from limited action to open war</div></div>
+            <div class="card"><div class="k">Result</div><div class="v">Regional alarm and emergency response</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="timeline fade-up d4">
+            <div class="timeline-item">
+              <div class="date">March 1</div>
+              <p>Military operations intensified and the war became clearly visible internationally.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">March 2</div>
+              <p>The first phase of the new war was established as a full conflict.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Key idea</div>
+              <p>This is why many people remember it mainly as the “March 2026 war.”</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="slide" data-note="This is the retaliation slide. Keep it simple: missiles, drones, alerts, and regional fear.">
+        <div>
+          <div class="eyebrow fade-up d1">Retaliation</div>
+          <h2 class="fade-up d2">Missiles, Drones, and Regional Response</h2>
+          <ul class="fade-up d3">
+            <li>Iran responded with missile and drone attacks.</li>
+            <li>The conflict affected Israel, U.S. regional positions, and nearby strategic zones.</li>
+            <li>Air-defense systems, emergency alerts, and restrictions became central.</li>
+            <li>The war quickly became a regional security crisis.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <div class="image-bg" style="background-image:url('https://static.vecteezy.com/system/resources/previews/054/301/601/large_2x/air-defense-launching-missiles-and-repelling-a-combat-strike-of-missiles-and-drones-concept-air-defense-and-protection-rocket-lift-off-strike-war-and-weapons-photo.jpg');"></div>
+          <div class="overlay-grid"></div>
+          <div class="missiles"><div class="missile m1"></div><div class="missile m2"></div><div class="missile m3"></div></div>
+          <div class="visual-content">
+            <div class="img-label">Retaliation visual</div>
+            <div class="img-title">Missiles • drones • interception atmosphere</div>
+            <div class="img-sub">Missile and drone retaliation expanded the conflict and placed regional air-defense systems under pressure.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="slide" data-note="This is your strongest analytical slide. Explain that leadership losses made the conflict more strategic, symbolic, and emotional.">
+        <div>
+          <div class="eyebrow fade-up d1">Turning Point</div>
+          <h2 class="fade-up d2">Leadership Losses and Strategic Shock</h2>
+          <p class="lead fade-up d3">A major reason this war felt bigger than previous clashes was the reported loss of high-level Iranian leadership and commanders. This transformed the conflict into a deeper strategic and symbolic confrontation.</p>
+          <div class="quote fade-up d4">When top leadership is hit, the conflict becomes more than military — it becomes political, psychological, and historic.</div>
+        </div>
+        <div class="cards fade-up d4">
+          <div class="card"><div class="k">Military effect</div><div class="v">Command disruption</div></div>
+          <div class="card"><div class="k">Political effect</div><div class="v">Higher pressure for retaliation</div></div>
+          <div class="card"><div class="k">Symbolic effect</div><div class="v">National shock and anger</div></div>
+          <div class="card"><div class="k">Result</div><div class="v">Much bigger escalation risk</div></div>
+        </div>
+      </section>
+
+      <!-- 8 -->
+      <section class="slide" data-note="This slide makes you sound smart in English class. Talk about oil, shipping, trade, and why a regional war can affect the whole world.">
+        <div>
+          <div class="eyebrow fade-up d1">Global Impact</div>
+          <h2 class="fade-up d2">Oil, Trade, and the Strait of Hormuz</h2>
+          <ul class="fade-up d3">
+            <li>The war affected one of the world’s most important energy routes.</li>
+            <li>Shipping risks increased and global markets reacted with fear.</li>
+            <li>Oil prices and trade security became major international concerns.</li>
+            <li>A regional war quickly became a global economic issue.</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <div class="image-bg" style="background-image:url('https://i.pinimg.com/736x/af/b2/2a/afb22a7b27ac48f979a7baf520fc2654.jpg');"></div>
+          <div class="overlay-grid"></div>
+          <div class="world"></div>
+          <div class="world-lines"></div>
+          <div class="hotspots"><div class="hotspot" style="top:58%;left:38%;"></div><div class="hotspot" style="top:54%;left:66%;animation-delay:1s;"></div></div>
+          <div class="visual-content">
+            <div class="img-label">Global effect</div>
+            <div class="img-title">Shipping routes • oil markets • international trade</div>
+            <div class="img-sub">Tensions around the Strait of Hormuz raised concerns over oil flows, shipping security, and global trade stability</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section class="slide" data-note="Stay respectful here. Talk about fear, daily life, insecurity, and humanitarian concern. Avoid going too graphic.">
+        <div>
+          <div class="eyebrow fade-up d1">Human Impact</div>
+          <h2 class="fade-up d2">Civilian Fear and Human Consequences</h2>
+          <div class="cards fade-up d3">
+            <div class="card"><div class="k">Fear</div><div class="v">People lived under alerts, uncertainty, and anxiety</div></div>
+            <div class="card"><div class="k">Safety</div><div class="v">Cities faced risk from strikes and retaliation</div></div>
+            <div class="card"><div class="k">Disruption</div><div class="v">Daily life, travel, and services became unstable</div></div>
+            <div class="card"><div class="k">International concern</div><div class="v">Humanitarian and diplomatic pressure increased</div></div>
+          </div>
+        </div>
+        <div class="visual">
+          <div class="image-bg" style="background-image:url('https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/3F8F/production/_131417261_gazaevac-heropic-epa.jpg');"></div>
+          <div class="overlay-grid"></div>
+          <div class="visual-content">
+            <div class="img-label">Human side</div>
+            <div class="img-title">Civilian fear • shelters • urban disruption</div>
+            <div class="img-sub">Beyond military strategy, the conflict disrupted daily life and placed civilians under constant fear and uncertainty.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="slide" data-note="Explain the ceasefire clearly: it reduced intensity, but it did not solve the deeper political and regional tensions.">
+        <div>
+          <div class="eyebrow fade-up d1">Ceasefire</div>
+          <h2 class="fade-up d2">A Fragile Ceasefire, Not a Real Peace</h2>
+          <p class="lead fade-up d3">Although a ceasefire reduced the intensity of the war, tensions remained high. The conflict looked paused, but not truly solved.</p>
+          <ul class="fade-up d4">
+            <li>Military activity slowed down</li>
+            <li>Political mistrust remained strong</li>
+            <li>Regional alliances stayed unstable</li>
+            <li>The risk of future escalation did not disappear</li>
+          </ul>
+        </div>
+        <div class="visual">
+          <div class="image-bg" style="background-image:url('https://i.pinimg.com/1200x/7f/66/ff/7f66ffa1ae5c41db708ac9233b27e765.jpg');"></div>
+          <div class="overlay-grid"></div>
+          <div class="split"></div>
+          <div class="visual-content">
+            <div class="img-label">Aftermath</div>
+            <div class="img-title">Diplomacy vs destruction</div>
+            <div class="img-sub">TThe ceasefire reduced immediate violence, but mistrust, instability, and the risk of renewed escalation remained.”</div>
+          </div>
+        </div>
+      </section>
+
+
+<section class="slide" data-note="Explain why the conflict matters to Morocco: even without direct involvement, Morocco can still feel the impact through energy prices, trade disruptions, and regional uncertainty.">
+  <div>
+    <div class="eyebrow fade-up d1">Regional Relevance</div>
+    <h2 class="fade-up d2">The Consequences on Morocco</h2>
+    <p class="lead fade-up d3">Although the conflict is geographically distant, its economic and strategic effects can still reach Morocco through higher prices, trade disruptions, and regional uncertainty.</p>
+    <ul class="fade-up d4">
+      <li>Higher oil prices can raise fuel and transport costs in Morocco</li>
+      <li>Trade instability may affect imports, shipping, and market confidence</li>
+      <li>Inflation pressure can increase the cost of food and energy</li>
+      <li>Regional tensions can create uncertainty across North Africa</li>
+    </ul>
+    <div class="quote fade-up d5">Even when a war happens far away, its economic and strategic consequences can still affect Morocco.</div>
+  </div>
+  <div class="visual">
+    <div class="image-bg" style="background-image:url('https://i.pinimg.com/736x/ef/a2/7d/efa27d900b8a72374470dfa6047c805e.jpg');"></div>
+    <div class="overlay-grid"></div>
+    <div class="split"></div>
+    <div class="visual-content">
+      <div class="img-label">Morocco</div>
+      <div class="img-title">Energy prices • trade pressure • economic spillover</div>
+      <div class="img-sub">Although the conflict is distant, its effects can still reach Morocco through energy prices, trade disruptions, and regional uncertainty.</div>
+    </div>
+  </div>
+</section>
+
+
+
+
+      <!-- 11 -->
+      <section class="slide single" data-note="This is your personal opinion slide. Speak naturally and slowly. This is where you sound mature and balanced.">
+        <div class="center-box">
+          <div class="eyebrow fade-up d1" style="justify-content:center;">Conclusion</div>
+          <h2 class="fade-up d2">My Opinion</h2>
+          <p class="lead fade-up d3" style="margin:0 auto;">
+            In my opinion, this war shows how quickly regional tensions can become a global crisis. It affects not only the Middle East, but also energy markets, trade, diplomacy, and international security. This is why peace, dialogue, and diplomacy are more important than ever.
+          </p>
+          <div class="chips fade-up d4">
+            <span class="chip">Peace is more important than escalation</span>
+            <span class="chip">War has human + economic costs</span>
+            <span class="chip">Diplomacy matters</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 -->
+      <section class="slide single" data-note="Finish strong: say thank you, smile, and pause. If the teacher asks questions, answer simply and confidently.">
+        <div class="center-box">
+          <div class="eyebrow fade-up d1" style="justify-content:center;">End</div>
+          <h1 class="gradient fade-up d2">Thank You</h1>
+          <p class="lead fade-up d3" style="margin:0 auto;">Thank you for listening.<br>Do you have any questions?</p>
+          <div class="chips fade-up d4">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="presenter-note" id="presenterNote">
+      <div class="speaker-title">Speaker Notes</div>
+      <div id="noteText">Start with confidence and introduce the topic.</div>
+    </div>
+
+    
+
+    <div class="controls">
+      <button class="secondary" id="notesBtn">N</button>
+      <button class="secondary" id="autoBtn">A</button>
+      <button class="secondary" id="fullBtn">⛶</button>
+      <button id="prevBtn">←</button>
+      <button id="nextBtn">→</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const progress = document.getElementById('progress');
+    const counter = document.getElementById('counter');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const fullBtn = document.getElementById('fullBtn');
+    const notesBtn = document.getElementById('notesBtn');
+    const autoBtn = document.getElementById('autoBtn');
+    const presenterNote = document.getElementById('presenterNote');
+    const noteText = document.getElementById('noteText');
+
+    let current = 0;
+    let notesVisible = false;
+    let autoMode = false;
+    let autoInterval = null;
+
+    function updateSlides() {
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+      const percent = ((current + 1) / slides.length) * 100;
+      progress.style.width = percent + '%';
+      counter.textContent = `${current + 1} / ${slides.length}`;
+      noteText.textContent = slides[current].dataset.note || 'No notes for this slide.';
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      updateSlides();
+      clickSound();
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      updateSlides();
+      clickSound();
+    }
+
+    function toggleNotes() {
+      notesVisible = !notesVisible;
+      presenterNote.classList.toggle('visible', notesVisible);
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen?.();
+      } else {
+        document.exitFullscreen?.();
+      }
+    }
+
+    function toggleAuto() {
+      autoMode = !autoMode;
+      autoBtn.style.opacity = autoMode ? '1' : '.85';
+      autoBtn.style.filter = autoMode ? 'brightness(1.15)' : 'none';
+      if (autoMode) {
+        autoInterval = setInterval(nextSlide, 8000);
+      } else {
+        clearInterval(autoInterval);
+      }
+    }
+
+    function clickSound() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = 660;
+        gain.gain.value = 0.015;
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.08);
+        osc.stop(ctx.currentTime + 0.08);
+      } catch (e) {}
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    fullBtn.addEventListener('click', toggleFullscreen);
+    notesBtn.addEventListener('click', toggleNotes);
+    autoBtn.addEventListener('click', toggleAuto);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key.toLowerCase() === 'f') toggleFullscreen();
+      if (e.key.toLowerCase() === 'n') toggleNotes();
+      if (e.key.toLowerCase() === 'a') toggleAuto();
+    });
+
+    // particles
+    const particleWrap = document.getElementById('particles');
+    for (let i = 0; i < 46; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 2.8 + 1;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.animationDuration = (Math.random() * 8 + 9) + 's';
+      p.style.animationDelay = (Math.random() * 10) + 's';
+      p.style.opacity = Math.random() * .4 + .08;
+      particleWrap.appendChild(p);
+    }
+
+    updateSlides();
+  </script>
+</body>
+</html>
